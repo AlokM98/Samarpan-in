@@ -2,37 +2,80 @@ import { useEffect, useState } from 'react'
 import './storefront.css'
 import './brand-theme.css'
 import HeroSection from './components/hero/HeroSection.jsx'
+import products from './data/products.json'
 
 const phoneNumber = '916205623537'
 
-const products = [
-  { name: 'Gulab Chandni Thali', price: '1,899', description: 'A blush-pink thali dressed with hand-painted florals and a moonlit sheen.', mark: 'Gulab', art: 'thali' },
-  { name: 'Sona Sitara Sieve', price: '1,299', description: 'A gold-finished chalni with delicate star details for the first glimpse of the moon.', mark: 'Sitara', art: 'sieve' },
-  { name: 'Mehfil Celebration Set', price: '2,499', description: 'A considered pairing of thali, sieve and diya for a beautifully complete ritual.', mark: 'Mehfil', art: 'set' },
-  { name: 'Noor Diya Pair', price: '699', description: 'Two warm brass-finish diyas to add a soft glow to your evening table.', mark: 'Noor', art: 'diya' },
-  { name: 'Chaand Baali Favour', price: '449', description: 'A tiny keepsake favour inspired by moonlight, wrapped ready for gifting.', mark: 'Baali', art: 'favour' },
-  { name: 'Suhagan Gift Hamper', price: '3,199', description: 'A festive curation of little luxuries, made for someone very loved.', mark: 'Suhagan', art: 'hamper' },
-  { name: 'Aastha Pooja Thali', price: '1,599', description: 'A serene ivory-and-gold thali with room for the rituals that matter.', mark: 'Aastha', art: 'pooja' },
-  { name: 'Raat Rani Tealight Trio', price: '899', description: 'Three floral tealight holders that turn a simple corner into a celebration.', mark: 'Raat Rani', art: 'lights' },
-  { name: 'Mogra Gajra Box', price: '549', description: 'A keepsake box for a small floral gesture, finished with a satin ribbon.', mark: 'Mogra', art: 'mogra' },
-  { name: 'Chaandni Couple Hamper', price: '2,899', description: 'A thoughtful pair of keepsakes for the couple at the heart of the evening.', mark: 'Chaandni', art: 'couple' },
-  { name: 'Laal Dhaaga Potli', price: '399', description: 'A rich red potli for gifting sweets, blessings and a little good fortune.', mark: 'Dhaaga', art: 'potli' },
-  { name: 'Riwaaz Memory Box', price: '2,199', description: 'A keepsake box made to hold photographs, notes and the stories of your rituals.', mark: 'Riwaaz', art: 'memory' },
-]
-
 function orderLink(product) {
-  const message = `Hi Samarpan, I would love to order the ${product.name} (₹${product.price}).`
+  const message = `Hi Samarpan, I would love to order the ${product.name} (₹${product.price.toLocaleString('en-IN')}).`
   return `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
 }
 
 function ProductArtwork({ product }) {
+  const [activeImage, setActiveImage] = useState(0)
+  const [isGalleryActive, setIsGalleryActive] = useState(false)
+  const images = Array.isArray(product.image) ? product.image.filter(Boolean) : []
+
+  useEffect(() => {
+    if (!isGalleryActive || images.length < 2) return undefined
+
+    const intervalId = window.setInterval(() => {
+      setActiveImage((current) => (current + 1) % images.length)
+    }, 1400)
+
+    return () => window.clearInterval(intervalId)
+  }, [images.length, isGalleryActive])
+
+  function startGallery() {
+    if (images.length > 1 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setIsGalleryActive(true)
+    }
+  }
+
+  function stopGallery() {
+    setIsGalleryActive(false)
+    setActiveImage(0)
+  }
+
   return (
-    <div className={`product-art product-art--${product.art}`} role="img" aria-label={`${product.mark} product illustration`}>
-      <span className="art-halo" />
-      <span className="art-object" />
-      <span className="art-detail" />
-      <span className="art-mark">{product.mark}</span>
-      <span className="art-spark" aria-hidden="true">✦</span>
+    <div
+      className={`product-art product-art--${product.art}`}
+      role={images.length > 0 ? 'group' : undefined}
+      aria-label={images.length > 0 ? `${product.name} photos` : undefined}
+      tabIndex={images.length > 0 ? 0 : undefined}
+      onPointerEnter={startGallery}
+      onPointerLeave={stopGallery}
+      onFocus={startGallery}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) stopGallery()
+      }}
+    >
+      {images.length > 0 ? (
+        <div className="product-photo-track" style={{ transform: `translateX(-${activeImage * 100}%)` }}>
+          {images.map((image, imageIndex) => (
+            <img
+              className="product-photo"
+              key={image}
+              src={image}
+              alt={`${product.name}, image ${imageIndex + 1} of ${images.length}`}
+              loading="lazy"
+            />
+          ))}
+        </div>
+      ) : (
+        <div role="img" aria-label={`${product.mark} product illustration`}>
+          <span className="art-halo" />
+          <span className="art-object" />
+          <span className="art-detail" />
+          <span className="art-mark">{product.mark}</span>
+          <span className="art-spark" aria-hidden="true">✦</span>
+        </div>
+      )}
+      {product.tags?.length > 0 && (
+        <ul className="product-tags" aria-label="Product tags">
+          {product.tags.map((tag) => <li key={tag}>{tag}</li>)}
+        </ul>
+      )}
     </div>
   )
 }
@@ -44,10 +87,23 @@ function ProductCard({ product, index }) {
       <div className="product-copy">
         <div className="product-title-row">
           <h3>{product.name}</h3>
-          <span className="product-price">₹{product.price}</span>
+          <div className="product-pricing">
+            <span className="product-price">₹{product.price.toLocaleString('en-IN')}</span>
+            {product.originalPrice && (
+              <span className="product-original-price">₹{product.originalPrice.toLocaleString('en-IN')}</span>
+            )}
+          </div>
         </div>
         <p className="product-category">KARWA CHAUTH</p>
         <p className="product-description">{product.description}</p>
+        {product.includes?.length > 0 && (
+          <details className="product-includes">
+            <summary>What’s included</summary>
+            <ul>
+              {product.includes.map((item) => <li key={item}>{item}</li>)}
+            </ul>
+          </details>
+        )}
         <a className="product-order" href={orderLink(product)} target="_blank" rel="noreferrer">
           Order on WhatsApp <span aria-hidden="true">↗</span>
         </a>

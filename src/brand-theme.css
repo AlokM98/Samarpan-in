@@ -32,8 +32,16 @@
   --warm-terracotta: #9b352f;
   --warm-gold: #9b5a42;
 
+  --type-body: 1rem;
+  --type-body-large: 1.125rem;
+  --type-small: .875rem;
+  --type-label: .75rem;
+  --type-card-title: 1.25rem;
+  --type-section-title: 3rem;
+  --type-hero-title: 4rem;
+
   --display-leading: 1.12;
-  --copy-leading: 1.65;
+  --copy-leading: 1.6;
   --label-tracking: 0;
 
   --text: var(--muted);
@@ -44,6 +52,7 @@
 body {
   color: var(--ink);
   font-family: var(--font-body);
+  font-size: var(--type-body);
   font-weight: 400;
   line-height: var(--copy-leading);
 }

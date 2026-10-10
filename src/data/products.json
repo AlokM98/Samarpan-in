@@ -1,0 +1,152 @@
+[
+  {
+    "name": "Gulab Chandni Thali",
+    "price": 1899,
+    "originalPrice": null,
+    "tags": [],
+    "description": "A blush-pink thali dressed with hand-painted florals and a moonlit sheen.",
+    "mark": "Gulab",
+    "image": [],
+    "includes": [],
+    "art": "thali"
+  },
+  {
+    "name": "Sona Sitara Sieve",
+    "price": 1299,
+    "originalPrice": null,
+    "tags": [],
+    "description": "A gold-finished chalni with delicate star details for the first glimpse of the moon.",
+    "mark": "Sitara",
+    "image": [],
+    "includes": [],
+    "art": "sieve"
+  },
+  {
+    "name": "Mehfil Celebration Set",
+    "price": 2499,
+    "originalPrice": null,
+    "tags": [],
+    "description": "A considered pairing of thali, sieve and diya for a beautifully complete ritual.",
+    "mark": "Mehfil",
+    "image": [],
+    "includes": [],
+    "art": "set"
+  },
+  {
+    "name": "Noor Diya Pair",
+    "price": 699,
+    "originalPrice": null,
+    "tags": [],
+    "description": "Two warm brass-finish diyas to add a soft glow to your evening table.",
+    "mark": "Noor",
+    "image": [],
+    "includes": [],
+    "art": "diya"
+  },
+  {
+    "name": "Chaand Baali Favour",
+    "price": 449,
+    "originalPrice": null,
+    "tags": [],
+    "description": "A tiny keepsake favour inspired by moonlight, wrapped ready for gifting.",
+    "mark": "Baali",
+    "image": [],
+    "includes": [],
+    "art": "favour"
+  },
+  {
+    "name": "Suhagan Gift Hamper",
+    "price": 3199,
+    "originalPrice": null,
+    "tags": [],
+    "description": "A festive curation of little luxuries, made for someone very loved.",
+    "mark": "Suhagan",
+    "image": [],
+    "includes": [],
+    "art": "hamper"
+  },
+  {
+    "name": "Aastha Pooja Thali",
+    "price": 1599,
+    "originalPrice": null,
+    "tags": [],
+    "description": "A serene ivory-and-gold thali with room for the rituals that matter.",
+    "mark": "Aastha",
+    "image": [],
+    "includes": [],
+    "art": "pooja"
+  },
+  {
+    "name": "Raat Rani Tealight Trio",
+    "price": 899,
+    "originalPrice": null,
+    "tags": [],
+    "description": "Three floral tealight holders that turn a simple corner into a celebration.",
+    "mark": "Raat Rani",
+    "image": [],
+    "includes": [],
+    "art": "lights"
+  },
+  {
+    "name": "Mogra Gajra Box",
+    "price": 549,
+    "originalPrice": null,
+    "tags": [],
+    "description": "A keepsake box for a small floral gesture, finished with a satin ribbon.",
+    "mark": "Mogra",
+    "image": [],
+    "includes": [],
+    "art": "mogra"
+  },
+  {
+    "name": "Chaandni Couple Hamper",
+    "price": 2899,
+    "originalPrice": null,
+    "tags": [],
+    "description": "A thoughtful pair of keepsakes for the couple at the heart of the evening.",
+    "mark": "Chaandni",
+    "image": [],
+    "includes": [],
+    "art": "couple"
+  },
+  {
+    "name": "Laal Dhaaga Potli",
+    "price": 399,
+    "originalPrice": null,
+    "tags": [],
+    "description": "A rich red potli for gifting sweets, blessings and a little good fortune.",
+    "mark": "Dhaaga",
+    "image": [],
+    "includes": [],
+    "art": "potli"
+  },
+  {
+    "name": "Riwaaz Memory Box",
+    "price": 2199,
+    "originalPrice": null,
+    "tags": [],
+    "description": "A keepsake box made to hold photographs, notes and the stories of your rituals.",
+    "mark": "Riwaaz",
+    "image": [],
+    "includes": [],
+    "art": "memory"
+  },
+  {
+    "name": "Saubhagya Thali",
+    "price": 4299,
+    "originalPrice": 5999,
+    "tags": ["Exclusive"],
+    "description": "A luxurious velvet purple thali beautifully accented with rani pink and rose-gold lace detailing — rich, regal and perfect for celebrating love, prosperity and marital bliss.",
+    "mark": "Saubhagya",
+    "image": [],
+    "includes": [
+      "Beautifully decorated Thaal",
+      "Lota",
+      "Chhanni",
+      "Fancy Bindi",
+      "Roli Chawal Set",
+      "Matching Thaal Cover"
+    ],
+    "art": "thali-purple"
+  }
+]
