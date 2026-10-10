@@ -1,0 +1,55 @@
+.hero-animation-slot,
+.hero-animation-fallback,
+.hero-static-poster {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-static-poster {
+  display: grid;
+  place-items: center;
+}
+
+.hero-animation-fallback {
+  background: radial-gradient(ellipse at 50% 84%, rgba(124, 54, 29, .22), transparent 34%), radial-gradient(ellipse at 50% 50%, #25211f 0, #121211 48%, #080909 100%);
+}
+
+.poster-sieve {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  width: min(134vw, 1580px);
+  aspect-ratio: .92;
+  border: clamp(12px, 1.5vw, 22px) solid #181717;
+  border-radius: 50%;
+  background: repeating-linear-gradient(0deg, rgba(203, 193, 169, .12) 0 2px, transparent 2px 11px), repeating-linear-gradient(90deg, rgba(203, 193, 169, .12) 0 2px, transparent 2px 11px), #101111;
+  box-shadow: 0 0 0 2px rgba(232, 212, 177, .7), 0 0 0 9px #d8a3a0, 0 0 0 16px rgba(255, 238, 200, .72), 0 0 54px rgba(255, 236, 200, .28);
+  transform: translateX(-50%) rotate(-7deg);
+}
+
+.poster-moon {
+  position: absolute;
+  top: 24%;
+  left: 50%;
+  width: clamp(82px, 11vw, 150px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 37% 31%, #fffce8, #fff3b8 42%, #eccb77);
+  box-shadow: 0 0 24px 11px rgba(255, 238, 175, .42), 0 0 100px 30px rgba(255, 235, 167, .14);
+  transform: translateX(-50%);
+}
+
+.hero-animation-fallback .poster-moon {
+  opacity: .7;
+}
+
+@media (max-width: 900px) {
+  .poster-sieve { top: 21%; width: 150vw; }
+}
+
+@media (max-width: 600px) {
+  .poster-sieve { top: 26%; width: 186vw; }
+  .poster-moon { top: 30%; width: 82px; }
+}

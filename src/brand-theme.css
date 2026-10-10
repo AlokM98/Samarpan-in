@@ -1,0 +1,64 @@
+:root {
+  color-scheme: dark;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--ink);
+  background: var(--page-bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --font-body: 'Cormorant Garamond', Georgia, serif;
+  --font-display: 'Cinzel Decorative', 'Palatino Linotype', Georgia, serif;
+  --sans: var(--font-body);
+  --heading: var(--font-display);
+  --serif: var(--font-display);
+
+  --page-bg: #110f0d;
+  --surface: #1c1815;
+  --surface-raised: #28211b;
+  --ink: #f3ead9;
+  --paper: #f3ead9;
+  --muted: #c0b2a1;
+  --gold: #d2b574;
+  --red: #c2785c;
+
+  --warm-paper: #f7f2ea;
+  --warm-surface: #eee4d6;
+  --warm-ink: #271d1b;
+  --warm-muted: #796d63;
+  --warm-terracotta: #9b352f;
+  --warm-gold: #9b5a42;
+
+  --display-leading: 1.12;
+  --copy-leading: 1.65;
+  --label-tracking: 0;
+
+  --text: var(--muted);
+  --text-h: var(--ink);
+  --bg: var(--page-bg);
+}
+
+body {
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: var(--copy-leading);
+}
+
+h1,
+h2,
+h3 {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+p,
+a,
+button {
+  font-family: var(--font-body);
+}
