@@ -67,15 +67,16 @@ function createBridalChooda({ count = 16 } = {}) {
 
 export async function loadScannedBridalHand() {
   const texLoader = new THREE.TextureLoader();
+  const [diffuseMap, normalMap, aoMap, obj] = await Promise.all([
+    texLoader.loadAsync(new URL("../../assets/female_hand/skin_diffuse.png", import.meta.url).href),
+    texLoader.loadAsync(new URL("../../assets/female_hand/0/default_normal.jpg", import.meta.url).href),
+    texLoader.loadAsync(new URL("../../assets/female_hand/0/default_occlusion_occl_scale1.jpg", import.meta.url).href),
+    new OBJLoader().loadAsync(new URL("../../assets/female_hand/female_hand.obj", import.meta.url).href),
+  ]);
 
-  const diffuseMap = await texLoader.loadAsync(new URL("../../assets/female_hand/skin_diffuse.png", import.meta.url).href);
   diffuseMap.colorSpace = THREE.SRGBColorSpace;
   diffuseMap.flipY = true;
-
-  const normalMap = await texLoader.loadAsync(new URL("../../assets/female_hand/0/default_normal.jpg", import.meta.url).href);
   normalMap.flipY = true;
-
-  const aoMap = await texLoader.loadAsync(new URL("../../assets/female_hand/0/default_occlusion_occl_scale1.jpg", import.meta.url).href);
   aoMap.flipY = true;
 
   const skinMaterial = new THREE.MeshStandardMaterial({
@@ -87,9 +88,6 @@ export async function loadScannedBridalHand() {
     roughness: 0.60,
     metalness: 0.02,
   });
-
-  const objLoader = new OBJLoader();
-  const obj = await objLoader.loadAsync(new URL("../../assets/female_hand/female_hand.obj", import.meta.url).href);
 
   let handMesh = null;
   obj.traverse((child) => {

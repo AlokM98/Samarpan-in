@@ -81,8 +81,8 @@ let nailMaterial = null;
 function loadHandAfterFirstPaint() {
   const connection = navigator.connection;
   const delay = connection?.saveData || /(^|-)2g$/.test(connection?.effectiveType)
-    ? 3500
-    : 1200;
+    ? 1200
+    : 300;
 
   const start = () => {
     loadScannedBridalHand()
