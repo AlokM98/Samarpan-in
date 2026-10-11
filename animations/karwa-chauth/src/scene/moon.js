@@ -1,14 +1,37 @@
 import * as THREE from "three";
 
+function loadTextureWithFallback(loader, optimizedUrl, fallbackUrl) {
+  const texture = new THREE.Texture();
+  const applyImage = (loadedTexture) => {
+    texture.image = loadedTexture.image;
+    texture.format = loadedTexture.format;
+    texture.needsUpdate = true;
+  };
+
+  loader.load(optimizedUrl, applyImage, undefined, () => {
+    loader.load(fallbackUrl, applyImage);
+  });
+
+  return texture;
+}
+
 // High-resolution realistic lunar diffuse and bump maps
 function loadMoonTextures() {
   const texLoader = new THREE.TextureLoader();
-  const diffuseMap = texLoader.load(new URL("../../assets/moon/moon_diffuse.jpg", import.meta.url).href);
+  const diffuseMap = loadTextureWithFallback(
+    texLoader,
+    new URL("../../assets/optimized/moon/moon_diffuse.webp", import.meta.url).href,
+    new URL("../../assets/moon/moon_diffuse.jpg", import.meta.url).href
+  );
   diffuseMap.colorSpace = THREE.SRGBColorSpace;
   diffuseMap.wrapS = THREE.RepeatWrapping;
   diffuseMap.wrapT = THREE.ClampToEdgeWrapping;
 
-  const bumpMap = texLoader.load(new URL("../../assets/moon/moon_bump.jpg", import.meta.url).href);
+  const bumpMap = loadTextureWithFallback(
+    texLoader,
+    new URL("../../assets/optimized/moon/moon_bump.webp", import.meta.url).href,
+    new URL("../../assets/moon/moon_bump.jpg", import.meta.url).href
+  );
   bumpMap.wrapS = THREE.RepeatWrapping;
   bumpMap.wrapT = THREE.ClampToEdgeWrapping;
 
@@ -112,4 +135,3 @@ export function createMoon({ radius = 2.4, position = new THREE.Vector3(0, 1.2, 
 
   return { group, mesh, glow, light };
 }
-

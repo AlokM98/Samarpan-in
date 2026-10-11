@@ -1,6 +1,14 @@
 import * as THREE from "three";
 import { OBJLoader } from "three/addons/loaders/OBJLoader.js";
 
+function loadTextureWithFallback(loader, optimizedUrl, fallbackUrl) {
+  return new Promise((resolve, reject) => {
+    loader.load(optimizedUrl, resolve, undefined, () => {
+      loader.load(fallbackUrl, resolve, undefined, reject);
+    });
+  });
+}
+
 function createBridalChooda({ count = 16 } = {}) {
   const group = new THREE.Group();
 
@@ -68,9 +76,21 @@ function createBridalChooda({ count = 16 } = {}) {
 export async function loadScannedBridalHand() {
   const texLoader = new THREE.TextureLoader();
   const [diffuseMap, normalMap, aoMap, obj] = await Promise.all([
-    texLoader.loadAsync(new URL("../../assets/female_hand/skin_diffuse.png", import.meta.url).href),
-    texLoader.loadAsync(new URL("../../assets/female_hand/0/default_normal.jpg", import.meta.url).href),
-    texLoader.loadAsync(new URL("../../assets/female_hand/0/default_occlusion_occl_scale1.jpg", import.meta.url).href),
+    loadTextureWithFallback(
+      texLoader,
+      new URL("../../assets/optimized/female_hand/skin_diffuse.webp", import.meta.url).href,
+      new URL("../../assets/female_hand/skin_diffuse.png", import.meta.url).href
+    ),
+    loadTextureWithFallback(
+      texLoader,
+      new URL("../../assets/optimized/female_hand/0/default_normal.webp", import.meta.url).href,
+      new URL("../../assets/female_hand/0/default_normal.jpg", import.meta.url).href
+    ),
+    loadTextureWithFallback(
+      texLoader,
+      new URL("../../assets/optimized/female_hand/0/default_occlusion.webp", import.meta.url).href,
+      new URL("../../assets/female_hand/0/default_occlusion_occl_scale1.jpg", import.meta.url).href
+    ),
     new OBJLoader().loadAsync(new URL("../../assets/female_hand/female_hand.obj", import.meta.url).href),
   ]);
 

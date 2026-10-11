@@ -322,13 +322,19 @@ export function createFancyChalni({ radius = 1.7 } = {}) {
   // read like a lightweight decorative applique rather than a second object.
   let emblem;
   const emblemHeight = 0.68;
-  const emblemTexture = textureLoader.load(new URL("../../assets/favicon.png", import.meta.url).href, (texture) => {
+  const emblemTexture = textureLoader.load(new URL("../../assets/optimized/favicon.webp", import.meta.url).href, (texture) => {
     // Read the real asset dimensions instead of assuming an aspect ratio.
     // This stays correct if the transparent PNG is replaced later.
     const aspectRatio = texture.image.width / texture.image.height;
     if (emblem) {
       emblem.scale.set(emblemHeight * aspectRatio, emblemHeight, 1);
     }
+  }, undefined, () => {
+    textureLoader.load(new URL("../../assets/favicon.png", import.meta.url).href, (fallbackTexture) => {
+      emblemTexture.image = fallbackTexture.image;
+      emblemTexture.format = fallbackTexture.format;
+      emblemTexture.needsUpdate = true;
+    });
   });
   emblemTexture.colorSpace = THREE.SRGBColorSpace;
   const emblemMaterial = new THREE.MeshBasicMaterial({
