@@ -3,6 +3,7 @@ import './storefront.css'
 import './brand-theme.css'
 import HeroSection from './components/hero/HeroSection.jsx'
 import products from './data/products.json'
+import { getProductImageProps } from './utils/vercelImage.js'
 
 const phoneNumber = '916205623537'
 
@@ -56,9 +57,11 @@ function ProductArtwork({ product }) {
             <img
               className="product-photo"
               key={image}
-              src={image}
+              {...getProductImageProps(image)}
               alt={`${product.name}, image ${imageIndex + 1} of ${images.length}`}
+              sizes="(max-width: 600px) calc(100vw - 40px), (max-width: 900px) calc(50vw - 43px), (max-width: 1499px) 30vw, 310px"
               loading="lazy"
+              decoding="async"
             />
           ))}
         </div>

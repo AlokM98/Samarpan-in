@@ -1,144 +1,19 @@
 [
   {
-    "name": "Gulab Chandni Thali",
-    "price": 1899,
-    "originalPrice": null,
-    "tags": [],
-    "description": "A blush-pink thali dressed with hand-painted florals and a moonlit sheen.",
-    "mark": "Gulab",
-    "image": [],
-    "includes": [],
-    "art": "thali"
-  },
-  {
-    "name": "Sona Sitara Sieve",
-    "price": 1299,
-    "originalPrice": null,
-    "tags": [],
-    "description": "A gold-finished chalni with delicate star details for the first glimpse of the moon.",
-    "mark": "Sitara",
-    "image": [],
-    "includes": [],
-    "art": "sieve"
-  },
-  {
-    "name": "Mehfil Celebration Set",
-    "price": 2499,
-    "originalPrice": null,
-    "tags": [],
-    "description": "A considered pairing of thali, sieve and diya for a beautifully complete ritual.",
-    "mark": "Mehfil",
-    "image": [],
-    "includes": [],
-    "art": "set"
-  },
-  {
-    "name": "Noor Diya Pair",
-    "price": 699,
-    "originalPrice": null,
-    "tags": [],
-    "description": "Two warm brass-finish diyas to add a soft glow to your evening table.",
-    "mark": "Noor",
-    "image": [],
-    "includes": [],
-    "art": "diya"
-  },
-  {
-    "name": "Chaand Baali Favour",
-    "price": 449,
-    "originalPrice": null,
-    "tags": [],
-    "description": "A tiny keepsake favour inspired by moonlight, wrapped ready for gifting.",
-    "mark": "Baali",
-    "image": [],
-    "includes": [],
-    "art": "favour"
-  },
-  {
-    "name": "Suhagan Gift Hamper",
-    "price": 3199,
-    "originalPrice": null,
-    "tags": [],
-    "description": "A festive curation of little luxuries, made for someone very loved.",
-    "mark": "Suhagan",
-    "image": [],
-    "includes": [],
-    "art": "hamper"
-  },
-  {
-    "name": "Aastha Pooja Thali",
-    "price": 1599,
-    "originalPrice": null,
-    "tags": [],
-    "description": "A serene ivory-and-gold thali with room for the rituals that matter.",
-    "mark": "Aastha",
-    "image": [],
-    "includes": [],
-    "art": "pooja"
-  },
-  {
-    "name": "Raat Rani Tealight Trio",
-    "price": 899,
-    "originalPrice": null,
-    "tags": [],
-    "description": "Three floral tealight holders that turn a simple corner into a celebration.",
-    "mark": "Raat Rani",
-    "image": [],
-    "includes": [],
-    "art": "lights"
-  },
-  {
-    "name": "Mogra Gajra Box",
-    "price": 549,
-    "originalPrice": null,
-    "tags": [],
-    "description": "A keepsake box for a small floral gesture, finished with a satin ribbon.",
-    "mark": "Mogra",
-    "image": [],
-    "includes": [],
-    "art": "mogra"
-  },
-  {
-    "name": "Chaandni Couple Hamper",
-    "price": 2899,
-    "originalPrice": null,
-    "tags": [],
-    "description": "A thoughtful pair of keepsakes for the couple at the heart of the evening.",
-    "mark": "Chaandni",
-    "image": [],
-    "includes": [],
-    "art": "couple"
-  },
-  {
-    "name": "Laal Dhaaga Potli",
-    "price": 399,
-    "originalPrice": null,
-    "tags": [],
-    "description": "A rich red potli for gifting sweets, blessings and a little good fortune.",
-    "mark": "Dhaaga",
-    "image": [],
-    "includes": [],
-    "art": "potli"
-  },
-  {
-    "name": "Riwaaz Memory Box",
-    "price": 2199,
-    "originalPrice": null,
-    "tags": [],
-    "description": "A keepsake box made to hold photographs, notes and the stories of your rituals.",
-    "mark": "Riwaaz",
-    "image": [],
-    "includes": [],
-    "art": "memory"
-  },
-  {
     "name": "Saubhagya Thali",
     "price": 4299,
     "originalPrice": 5999,
     "tags": ["Exclusive"],
     "description": "A luxurious velvet purple thali beautifully accented with rani pink and rose-gold lace detailing — rich, regal and perfect for celebrating love, prosperity and marital bliss.",
     "mark": "Saubhagya",
-    "image": [],
+    "image": [
+      "/assets/products/saubhagya/1.webp",
+      "/assets/products/saubhagya/2.webp",
+      "/assets/products/saubhagya/3.webp",
+      "/assets/products/saubhagya/4.webp",
+      "/assets/products/saubhagya/5.webp",
+      "/assets/products/saubhagya/6.webp"
+    ],
     "includes": [
       "Beautifully decorated Thaal",
       "Lota",
@@ -148,5 +23,108 @@
       "Matching Thaal Cover"
     ],
     "art": "thali-purple"
+  },
+  {
+    "name": "Chandni Thali",
+    "price": 3699,
+    "originalPrice": 5299,
+    "tags": ["Elegant"],
+    "description": "A midnight blue Karwa Chauth thali adorned with delicate gold lace detailing, like moonlight resting on gold, bringing together refined detailing and traditional charm in a beautifully feminine design.",
+    "mark": "Chandni",
+    "image": [
+      "/assets/products/chandni/1.webp",
+      "/assets/products/chandni/2.webp",
+      "/assets/products/chandni/3.webp",
+      "/assets/products/chandni/4.webp",
+      "/assets/products/chandni/5.webp",
+      "/assets/products/chandni/6.webp"
+    ],
+    "includes": [
+      "Beautifully decorated Thaal",
+      "Lota",
+      "Chhanni",
+      "Fancy Bindi",
+      "Roli Chawal Set",
+      "Matching Thaal Cover"
+    ],
+    "art": "thali-midnight-blue"
+  },
+  {
+    "name": "Saumya Thali",
+    "price": 3699,
+    "originalPrice": 5299,
+    "tags": ["Elegant"],
+    "description": "A rich maroon Karwa Chauth thali crafted with traditional detailing and an elegant festive finish — perfect for celebrating the beauty and auspiciousness of your special day.",
+    "mark": "Saumya",
+    "image": [
+      "/assets/products/saumya/7.webp",
+      "/assets/products/saumya/1.webp",
+      "/assets/products/saumya/2.webp",
+      "/assets/products/saumya/3.webp",
+      "/assets/products/saumya/4.webp",
+      "/assets/products/saumya/5.webp",
+      "/assets/products/saumya/6.webp"
+    ],
+    "includes": [
+      "Beautifully decorated Thaal",
+      "Lota",
+      "Chhanni",
+      "Fancy Bindi",
+      "Roli Chawal Set",
+      "Matching Thaal Cover"
+    ],
+    "art": "thali-maroon"
+  },
+  {
+    "name": "Mohini Thali",
+    "price": 3699,
+    "originalPrice": 5299,
+    "tags": ["Premium"],
+    "description": "A captivating purple and pink Karwa Chauth thali finished with intricate gold lace detailing, created for a graceful and statement-worthy celebration.",
+    "mark": "Mohini",
+    "image": [
+      "/assets/products/mohini/3.webp",
+      "/assets/products/mohini/1.webp",
+      "/assets/products/mohini/2.webp",
+      "/assets/products/mohini/4.webp",
+      "/assets/products/mohini/5.webp",
+      "/assets/products/mohini/6.webp",
+      "/assets/products/mohini/7.webp"
+    ],
+    "includes": [
+      "Beautifully decorated Thaal",
+      "Lota",
+      "Chhanni",
+      "Fancy Bindi",
+      "Roli Chawal Set",
+      "Matching Thaal Cover"
+    ],
+    "art": "thali-purple-pink"
+  },
+  {
+    "name": "Swarn Thali",
+    "price": 3699,
+    "originalPrice": 5299,
+    "tags": ["Elegant"],
+    "description": "A soft peach Karwa Chauth thali adorned with delicate rose-gold lace detailing, bringing together subtle elegance and festive charm in a beautifully feminine design.",
+    "mark": "Swarn",
+    "image": [
+      "/assets/products/swarn/1.webp",
+      "/assets/products/swarn/2.webp",
+      "/assets/products/swarn/3.webp",
+      "/assets/products/swarn/4.webp",
+      "/assets/products/swarn/5.webp",
+      "/assets/products/swarn/6.webp",
+      "/assets/products/swarn/7.webp"
+    ],
+    "includes": [
+      "Beautifully decorated Thaal",
+      "Lota",
+      "Chhanni",
+      "Fancy Bindi",
+      "Roli Chawal Set",
+      "Matching Thaal Cover"
+    ],
+    "art": "thali-peach"
   }
 ]
