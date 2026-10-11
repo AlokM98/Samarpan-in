@@ -128,7 +128,19 @@ function SiteHeader({ phoneNumber }) {
   return (
     <header className={`site-header${isScrolled ? ' is-scrolled' : ''}`} data-theme="dark">
       <a className="wordmark" href="#home" aria-label="Samarpan home">
-        <img src="/assets/header_logo.png" alt="Samarpan — Bringing meaning to every celebration" />
+        <picture>
+          <source
+            type="image/webp"
+            srcSet="/assets/optimized/header_logo-320.webp 320w, /assets/optimized/header_logo-640.webp 640w"
+            sizes="(max-width: 600px) 34vw, 210px"
+          />
+          <img
+            src="/assets/header_logo.png"
+            width="593"
+            height="421"
+            alt="Samarpan — Bringing meaning to every celebration"
+          />
+        </picture>
       </a>
       <nav className="main-nav" aria-label="Main navigation">
         <a href="#collection">Collection</a>

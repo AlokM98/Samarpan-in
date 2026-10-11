@@ -42,6 +42,8 @@ export function KarwaAnimation({
     let animation: AnimationController | null = null;
     let disposed = false;
     let frameRequest = 0;
+    let idleRequest = 0;
+    let startupTimer: ReturnType<typeof globalThis.setTimeout> | undefined;
 
     const sync = () => {
       if (frameRequest) return;
@@ -57,16 +59,26 @@ export function KarwaAnimation({
       });
     };
 
-    // Copy this whole folder to another project and import from './animation'.
-    // The scene engine is local to this folder and does not depend on app-level paths.
-    // @ts-ignore - the shared animation engine is plain JS by design.
-    import("./src/main.js").then(({ createAnimation }) => {
+    const startAnimation = () => {
       if (disposed) return;
-      animation = createAnimation(canvas);
-      onReady?.();
-      sync();
-    }).catch((error: Error) => {
-      if (!disposed) onError?.(error);
+      // @ts-ignore - the shared animation engine is plain JS by design.
+      import("./src/main.js").then(({ createAnimation }) => {
+        if (disposed) return;
+        animation = createAnimation(canvas);
+        onReady?.();
+        sync();
+      }).catch((error: Error) => {
+        if (!disposed) onError?.(error);
+      });
+    };
+
+    const firstPaint = window.requestAnimationFrame(() => {
+      const scheduleIdle = window.requestIdleCallback;
+      if (typeof scheduleIdle === "function") {
+        idleRequest = scheduleIdle.call(window, startAnimation, { timeout: 1200 });
+      } else {
+        startupTimer = globalThis.setTimeout(startAnimation, 350);
+      }
     });
 
     window.addEventListener("scroll", sync, { passive: true });
@@ -77,6 +89,9 @@ export function KarwaAnimation({
     sync();
 
     return () => {
+      window.cancelAnimationFrame(firstPaint);
+      if (idleRequest && "cancelIdleCallback" in window) window.cancelIdleCallback(idleRequest);
+      if (startupTimer !== undefined) globalThis.clearTimeout(startupTimer);
       if (frameRequest) cancelAnimationFrame(frameRequest);
       disposed = true;
       window.removeEventListener("scroll", sync);
